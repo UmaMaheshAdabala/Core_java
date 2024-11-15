@@ -3,20 +3,36 @@ package MultiThreading;
 public class Main {
     public static void main(String[] args) {
         // Creating Objects
-        A obj1 = new A();
-        B obj2 = new B();
-        // To start the Thread;
-        obj1.start();
-        obj2.start();
+        // A obj1 = new A();
+        // B obj2 = new B();
+        // // To start the Thread;
+        // obj1.start();
+        // obj2.start();
 
-        // By using Runnable
+        // // By using Runnable
 
-        C obj3 = new C();
-        D obj4 = new D();
-        Thread t1 = new Thread(obj3);
-        Thread t2 = new Thread(obj4);
-        t1.start();
-        t2.start();
+        // C obj3 = new C();
+        // D obj4 = new D();
+        // Thread t1 = new Thread(obj3);
+        // Thread t2 = new Thread(obj4);
+        // t1.start();
+        // t2.start();
+
+        // As Runnable is a Function Interface we can use lambda Functions
+        Runnable E = () -> {
+            for (int i = 0; i < 100; i++) {
+                System.out.println("From Lambda Fn E");
+            }
+        };
+        Runnable F = () -> {
+            for (int i = 0; i < 100; i++) {
+                System.out.println("From Lambda Fn F");
+            }
+        };
+        Thread t3 = new Thread(E);
+        Thread t4 = new Thread(F);
+        t3.start();
+        t4.start();
     }
 }
 
