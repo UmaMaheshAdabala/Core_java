@@ -1,7 +1,7 @@
 package MultiThreading;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         // Creating Objects
         // A obj1 = new A();
         // B obj2 = new B();
@@ -33,6 +33,11 @@ public class Main {
         Thread t4 = new Thread(F);
         t3.start();
         t4.start();
+        // This Makes the other thread to wait until this thread get executes;
+        t4.join();
+        t3.join();
+        // To set priority Explicitly
+        t4.setPriority(20);
     }
 }
 
